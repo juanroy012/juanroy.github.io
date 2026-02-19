@@ -1,0 +1,44 @@
+{
+  "personal": {
+    "name": "Juan Roy",
+    "title": "Computer Programming Student",
+    "tagline": "Building elegant solutions to real-world problems.",
+    "bio": "I'm a passionate Computer Programming student with a love for clean code, scalable systems, and crafting user experiences that just feel right. I thrive at the intersection of logic and creativity.",
+    "email": "juanroy012@gmail.com",
+    "github": "https://github.com/juanroy012",
+    "linkedin": "https://linkedin.com/in/yourusername",
+    "twitter": "https://twitter.com/yourusername",
+    "resume": "/resume.pdf",
+    "location": "Sault Ste. Marie, ON",
+    "availability": "Open to opportunities"
+  },
+  "skills": {
+    "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"],
+    "Frontend": ["React", "Tailwind CSS", "HTML5", "CSS3", "Vite"],
+    "Backend": ["FastAPI", "Node.js", "Express", "REST APIs", "GraphQL"],
+    "Data & ML": ["NumPy", "Pandas", "scikit-learn", "PostgreSQL", "MongoDB"],
+    "DevOps": ["Docker", "Git", "GitHub Actions", "fly.io", "Linux"]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "name": "Financial Tracker Project",
+      "description": "A full-stack financial tracking web application. Built with React and FastAPI, deployed on fly.io.",
+      "subdomain": "finance.juan-roy.com/",
+      "github": "https://github.com/juanroy012/FinancialTracker",
+      "tech": ["React", "FastAPI", "SQLite", "Docker"],
+      "featured": true,
+      "status": "Live"
+    }
+  ],
+  "education": [
+    {
+      "school": "Sault College",
+      "degree": "Diploma in Computer Programming",
+      "period": "2024 – 2026",
+      "gpa": "4.0 / 4.0"
+    }
+  ],
+  "experience": [
+  ]
+}

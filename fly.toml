@@ -1,0 +1,28 @@
+# fly.toml app configuration file generated for juanroy-portfolio on 2026-02-19T00:45:50-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'juanroy-portfolio'
+primary_region = 'yyz'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = 'connections'
+    hard_limit = 100
+    soft_limit = 80
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 512
