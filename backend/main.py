@@ -75,6 +75,13 @@ STATIC_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
 if os.path.exists(STATIC_DIR):
     app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="assets")
 
+    @app.get("/resume.pdf")
+    def serve_resume():
+        resume_path = os.path.join(STATIC_DIR, "resume.pdf")
+        if not os.path.exists(resume_path):
+            raise HTTPException(status_code=404, detail="Resume not found")
+        return FileResponse(resume_path, media_type="application/pdf", filename="resume.pdf")
+
     @app.get("/{full_path:path}")
     def serve_spa(full_path: str):
         index = os.path.join(STATIC_DIR, "index.html")
