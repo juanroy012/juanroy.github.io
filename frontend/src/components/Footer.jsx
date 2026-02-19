@@ -19,7 +19,7 @@ export default function Footer({ personal }) {
 
         {/* Copy */}
         <p className="text-muted text-sm text-center">
-          © {year} {personal?.name ?? 'Your Name'}. Built with React & FastAPI.
+          © {year} {personal?.name ?? 'Your Name'}.
         </p>
 
         {/* Socials */}
