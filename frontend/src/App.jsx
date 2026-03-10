@@ -20,7 +20,7 @@ export default function App() {
       <div className="relative z-10">
         <Navbar personal={personal} />
         <Hero personal={personal} />
-        <About personal={personal} education={education} experience={experience} />
+        <About personal={personal} education={education} />
         <Skills skills={skills} />
         <Projects projects={projects} />
         <Contact personal={personal} />

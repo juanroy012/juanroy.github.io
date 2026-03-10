@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FiMapPin, FiMail, FiBook, FiBriefcase, FiAward } from 'react-icons/fi'
+import { FiMapPin, FiMail, FiBook } from 'react-icons/fi'
 import SectionWrapper, { SectionLabel, SectionTitle, SectionDivider } from './SectionWrapper'
 
 function TimelineCard({ icon: Icon, title, subtitle, period, meta, delay }) {
@@ -28,7 +28,7 @@ function TimelineCard({ icon: Icon, title, subtitle, period, meta, delay }) {
   )
 }
 
-export default function About({ personal, education, experience }) {
+export default function About({ personal, education }) {
   return (
     <SectionWrapper id="about" className="border-t border-border">
       <SectionLabel>Get to know me</SectionLabel>
@@ -87,17 +87,6 @@ export default function About({ personal, education, experience }) {
               period={edu.period}
               meta={edu.gpa ? `GPA ${edu.gpa}` : undefined}
               delay={i * 0.1}
-            />
-          ))}
-          {experience?.length > 0 && experience.map((exp, i) => (
-            <TimelineCard
-              key={i}
-              icon={FiBriefcase}
-              title={exp.role}
-              subtitle={exp.company}
-              period={exp.period}
-              meta={exp.description}
-              delay={(education?.length ?? 0) * 0.1 + i * 0.1}
             />
           ))}
         </div>

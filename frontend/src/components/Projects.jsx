@@ -4,9 +4,8 @@ import { FiExternalLink, FiGithub, FiGlobe, FiStar } from 'react-icons/fi'
 import SectionWrapper, { SectionLabel, SectionTitle, SectionDivider } from './SectionWrapper'
 
 const STATUS_STYLES = {
-  Live:          'text-emerald-400 border-emerald-500/40',
-  'In Progress': 'text-amber-400  border-amber-500/40',
-  Archived:      'text-gray-600   border-gray-700',
+  Live:      'text-emerald-400 border-emerald-500/40',
+  Capstone:  'text-sky-400     border-sky-500/40',
 }
 
 function ProjectCard({ project, index }) {
