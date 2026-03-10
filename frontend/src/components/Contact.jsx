@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { FiSend, FiCheckCircle, FiAlertTriangle } from 'react-icons/fi'
+import { FiSend, FiCheckCircle, FiAlertTriangle, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import SectionWrapper, { SectionLabel, SectionTitle, SectionDivider } from './SectionWrapper'
+
+const inputClass = `w-full bg-surface border border-border px-4 py-3 font-mono text-sm text-gray-200
+  placeholder:text-gray-700 focus:outline-none focus:border-primary transition-colors`
 
 export default function Contact({ personal }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [status, setStatus] = useState('idle')
 
-  const handleChange = (e) =>
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
+  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -23,66 +25,70 @@ export default function Contact({ personal }) {
   }
 
   return (
-    <SectionWrapper id="contact" className="bg-surface/30">
+    <SectionWrapper id="contact" className="border-t border-border">
       <SectionLabel>Say hello</SectionLabel>
       <SectionTitle>Get in Touch</SectionTitle>
       <SectionDivider />
 
       <div className="grid lg:grid-cols-2 gap-12">
-        {/* Left — copy */}
-        <div className="space-y-5">
-          <p className="text-slate-300 text-lg leading-relaxed">
-            Whether you have a project idea, want to collaborate, or just want to say hi — my inbox
-            is always open.
+        {/* Left */}
+        <div className="space-y-8">
+          <p className="text-gray-400 text-base leading-relaxed">
+            Whether you have a role in mind, a project to collaborate on, or just want to say hi —
+            I&apos;m always happy to talk.
           </p>
-          <a
-            href={`mailto:${personal?.email ?? ''}`}
-            className="inline-block gradient-text font-semibold text-xl hover:opacity-80 transition-opacity"
-          >
-            {personal?.email ?? 'your@email.com'}
-          </a>
 
-          <div className="flex flex-col gap-3 pt-4">
+          <div className="space-y-4">
             {[
-              { label: 'GitHub', href: personal?.github },
-              { label: 'LinkedIn', href: personal?.linkedin },
-            ].map(({ label, href }) => (
+              { icon: FiMail,     label: personal?.email,   href: `mailto:${personal?.email}` },
+              { icon: FiGithub,   label: 'github.com/juanroy012', href: personal?.github },
+              { icon: FiLinkedin, label: 'linkedin.com/in/juan-roy', href: personal?.linkedin },
+            ].map(({ icon: Icon, label, href }) => (
               <a
                 key={label}
                 href={href ?? '#'}
                 target="_blank"
                 rel="noreferrer"
-                className="text-muted hover:text-accent transition-colors text-sm"
+                className="flex items-center gap-3 group"
               >
-                → {label}
+                <div className="w-8 h-8 border border-border flex items-center justify-center
+                                text-gray-600 group-hover:border-primary group-hover:text-primary transition-all">
+                  <Icon size={13} />
+                </div>
+                <span className="font-mono text-sm text-gray-500 group-hover:text-primary transition-colors">
+                  {label}
+                </span>
               </a>
             ))}
           </div>
         </div>
 
         {/* Right — form */}
-        <form onSubmit={handleSubmit} className="glass-card p-7 space-y-5">
-          {['name', 'email'].map((field) => (
+        <form onSubmit={handleSubmit} className="card card-corner p-6 space-y-4">
+          {[
+            { field: 'name',    type: 'text',  placeholder: 'Your name' },
+            { field: 'email',   type: 'email', placeholder: 'you@example.com' },
+          ].map(({ field, type, placeholder }) => (
             <div key={field}>
-              <label className="block text-sm font-medium text-slate-400 mb-1.5 capitalize">
+              <label className="block font-mono text-xs text-gray-600 mb-1.5 tracking-widest uppercase">
                 {field}
               </label>
               <input
-                type={field === 'email' ? 'email' : 'text'}
+                type={type}
                 name={field}
                 value={form[field]}
                 onChange={handleChange}
                 required
-                placeholder={field === 'email' ? 'you@example.com' : 'Your name'}
-                className="w-full bg-dark/60 border border-border rounded-xl px-4 py-3 text-slate-200
-                           placeholder:text-muted text-sm focus:outline-none focus:border-primary
-                           transition-colors"
+                placeholder={placeholder}
+                className={inputClass}
               />
             </div>
           ))}
 
           <div>
-            <label className="block text-sm font-medium text-slate-400 mb-1.5">Message</label>
+            <label className="block font-mono text-xs text-gray-600 mb-1.5 tracking-widest uppercase">
+              Message
+            </label>
             <textarea
               name="message"
               value={form.message}
@@ -90,33 +96,31 @@ export default function Contact({ personal }) {
               required
               rows={5}
               placeholder="Tell me what's on your mind..."
-              className="w-full bg-dark/60 border border-border rounded-xl px-4 py-3 text-slate-200
-                         placeholder:text-muted text-sm focus:outline-none focus:border-primary
-                         transition-colors resize-none"
+              className={`${inputClass} resize-none`}
             />
           </div>
 
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+            className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === 'loading' ? (
-              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <span className="w-3.5 h-3.5 border border-dark/40 border-t-dark rounded-full animate-spin" />
             ) : (
-              <FiSend size={15} />
+              <FiSend size={13} />
             )}
             {status === 'loading' ? 'Sending…' : 'Send Message'}
           </button>
 
           {status === 'success' && (
-            <p className="flex items-center gap-2 text-emerald-400 text-sm">
-              <FiCheckCircle /> Message sent — I&apos;ll get back to you soon!
+            <p className="flex items-center gap-2 font-mono text-xs text-emerald-400">
+              <FiCheckCircle size={13} /> Message sent — I&apos;ll get back to you soon!
             </p>
           )}
           {status === 'error' && (
-            <p className="flex items-center gap-2 text-rose-400 text-sm">
-              <FiAlertTriangle /> Something went wrong. Try emailing me directly.
+            <p className="flex items-center gap-2 font-mono text-xs text-red-400">
+              <FiAlertTriangle size={13} /> Something went wrong. Email me directly.
             </p>
           )}
         </form>

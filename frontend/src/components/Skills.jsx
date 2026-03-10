@@ -3,23 +3,25 @@ import { useInView } from 'react-intersection-observer'
 import SectionWrapper, { SectionLabel, SectionTitle, SectionDivider } from './SectionWrapper'
 
 const CATEGORY_COLORS = {
-  Languages:  'from-violet-600 to-purple-600',
-  Frontend:   'from-blue-500 to-cyan-500',
-  Backend:    'from-emerald-500 to-teal-500',
-  'Data & ML': 'from-orange-500 to-amber-500',
-  DevOps:     'from-rose-500 to-pink-500',
+  Languages:   'text-emerald-400',
+  Frontend:    'text-sky-400',
+  Backend:     'text-violet-400',
+  'Data & ML': 'text-amber-400',
+  DevOps:      'text-rose-400',
+  Databases:   'text-orange-400',
+  Tools:       'text-teal-400',
+  Cloud:       'text-blue-400',
 }
 
-function SkillBadge({ name, delay }) {
+function SkillRow({ name, index }) {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
-
   return (
     <motion.span
       ref={ref}
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ delay, duration: 0.35 }}
-      className="tech-badge hover:border-primary/50 hover:text-slate-200 transition-colors cursor-default"
+      initial={{ opacity: 0, y: 6 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: index * 0.04, duration: 0.25 }}
+      className="tech-badge cursor-default"
     >
       {name}
     </motion.span>
@@ -30,27 +32,29 @@ export default function Skills({ skills }) {
   if (!skills) return null
 
   return (
-    <SectionWrapper id="skills" className="bg-surface/30">
+    <SectionWrapper id="skills" className="border-t border-border">
       <SectionLabel>What I work with</SectionLabel>
       <SectionTitle>Skills & Technologies</SectionTitle>
       <SectionDivider />
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {Object.entries(skills).map(([category, items]) => (
-          <div key={category} className="glass-card p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className={`w-2 h-6 rounded-full bg-gradient-to-b ${CATEGORY_COLORS[category] ?? 'from-primary to-accent'}`}
-              />
-              <h3 className="font-semibold text-white">{category}</h3>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        {Object.entries(skills).map(([category, items]) => {
+          const colorClass = CATEGORY_COLORS[category] ?? 'text-primary'
+          return (
+            <div key={category} className="bg-card p-6 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className={`font-mono text-xs tracking-widest uppercase ${colorClass}`}>
+                  {category}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {items.map((skill, idx) => (
+                  <SkillRow key={skill} name={skill} index={idx} />
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {items.map((skill, idx) => (
-                <SkillBadge key={skill} name={skill} delay={idx * 0.05} />
-              ))}
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </SectionWrapper>
   )

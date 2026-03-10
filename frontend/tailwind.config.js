@@ -4,13 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#7c3aed',
-        accent: '#06b6d4',
-        dark: '#080c14',
-        surface: '#0f172a',
-        card: '#1e293b',
-        border: '#334155',
-        muted: '#64748b',
+        primary:  '#10b981',   // emerald-500  — terminal green
+        accent:   '#34d399',   // emerald-400  — lighter green
+        dim:      '#059669',   // emerald-600  — darker green for depth
+        dark:     '#0a0a0a',   // near-black
+        surface:  '#111111',   // slightly lifted black
+        card:     '#161616',   // card background
+        border:   '#222222',   // very subtle border
+        muted:    '#4b5563',   // gray-600
+        subtle:   '#1f1f1f',   // hover surfaces
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -18,25 +20,30 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #080c14 0%, #0f172a 50%, #1a0533 100%)',
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'slide-up': 'slideUp 0.6s ease-out',
+        'blink':      'blink 1s step-end infinite',
+        'scan':       'scan 4s linear infinite',
+        'fade-in':    'fadeIn 0.4s ease-out both',
+        'slide-up':   'slideUp 0.5s ease-out both',
+        'spin-slow':  'spin 8s linear infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-12px)' },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%':      { opacity: '0' },
         },
-        glow: {
-          from: { boxShadow: '0 0 20px rgba(124, 58, 237, 0.3)' },
-          to: { boxShadow: '0 0 40px rgba(6, 182, 212, 0.5)' },
+        scan: {
+          '0%':   { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100vh)' },
+        },
+        fadeIn: {
+          from: { opacity: '0' },
+          to:   { opacity: '1' },
         },
         slideUp: {
-          from: { opacity: 0, transform: 'translateY(30px)' },
-          to: { opacity: 1, transform: 'translateY(0)' },
+          from: { opacity: '0', transform: 'translateY(20px)' },
+          to:   { opacity: '1', transform: 'translateY(0)' },
         },
       },
     },

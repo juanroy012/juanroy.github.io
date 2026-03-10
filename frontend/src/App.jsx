@@ -16,14 +16,7 @@ export default function App() {
   const { personal, skills, projects, education, experience } = data ?? {}
 
   return (
-    <div className="relative min-h-screen bg-dark noise-bg overflow-x-hidden">
-      {/* Ambient orbs */}
-      <div className="pointer-events-none select-none">
-        <div className="orb orb-1" />
-        <div className="orb orb-2" />
-        <div className="orb orb-3" />
-      </div>
-
+    <div className="relative min-h-screen bg-dark dot-grid scanline-bg overflow-x-hidden">
       <div className="relative z-10">
         <Navbar personal={personal} />
         <Hero personal={personal} />

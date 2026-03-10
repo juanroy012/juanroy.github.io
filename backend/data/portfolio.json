@@ -1,34 +1,54 @@
 {
   "personal": {
     "name": "Juan Roy",
-    "title": "Computer Programming Student",
-    "tagline": "Building elegant solutions to real-world problems.",
-    "bio": "I'm a passionate Computer Programming student with a love for clean code, scalable systems, and crafting user experiences that just feel right. I thrive at the intersection of logic and creativity.",
+    "title": "Backend & Full-Stack Developer",
+    "tagline": "I build REST APIs and database-driven web apps. Clean code, real deployments.",
+    "bio": "Computer Programming student at Sault College (GPA 4.0, graduating Apr 2026). I enjoy building backends that are reliable and frontends that are fast. Currently looking for Junior Backend or Full-Stack roles.",
     "email": "juanroy012@gmail.com",
     "github": "https://github.com/juanroy012",
-    "linkedin": "https://linkedin.com/in/yourusername",
-    "twitter": "https://twitter.com/yourusername",
+    "linkedin": "https://linkedin.com/in/juan-roy",
     "resume": "/resume.pdf",
     "location": "Sault Ste. Marie, ON",
-    "availability": "Open to opportunities"
+    "availability": "Open to opportunities — remote or relocation"
   },
   "skills": {
-    "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C++", "SQL"],
-    "Frontend": ["React", "Tailwind CSS", "HTML5", "CSS3", "Vite"],
-    "Backend": ["FastAPI", "Node.js", "Express", "REST APIs", "GraphQL"],
-    "Data & ML": ["NumPy", "Pandas", "scikit-learn", "PostgreSQL", "MongoDB"],
-    "DevOps": ["Docker", "Git", "GitHub Actions", "fly.io", "Linux"]
+    "Languages": ["Java", "Python", "JavaScript", "SQL"],
+    "Backend": ["Spring", "Hibernate", "Servlets", "FastAPI", "REST APIs"],
+    "Frontend": ["React", "Vite", "Tailwind CSS", "HTML5", "CSS3"],
+    "Databases": ["MySQL", "PostgreSQL", "SQLite"],
+    "Tools": ["Git", "GitHub Actions", "Docker", "Linux"],
+    "Cloud": ["AWS EC2", "AWS S3", "AWS RDS", "Fly.io"]
   },
   "projects": [
     {
       "id": 1,
-      "name": "Financial Tracker Project",
-      "description": "A full-stack financial tracking web application. Built with React and FastAPI, deployed on fly.io.",
-      "subdomain": "finance.juan-roy.com/",
+      "name": "Financial Tracker",
+      "description": "Full-stack finance app with JWT auth, per-user data isolation, transactions/accounts/categories, search, pagination, and dashboard views.",
+      "subdomain": "finance.juan-roy.com",
       "github": "https://github.com/juanroy012/FinancialTracker",
-      "tech": ["React", "FastAPI", "SQLite", "Docker"],
+      "tech": ["FastAPI", "React", "SQLite", "Docker", "Fly.io"],
       "featured": true,
       "status": "Live"
+    },
+    {
+      "id": 2,
+      "name": "OHS Remote",
+      "description": "Capstone safety compliance platform. REST APIs for OHS manual workflows, document generation, secure token-based downloads, and Swagger docs.",
+      "subdomain": "",
+      "github": "",
+      "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "Docker"],
+      "featured": true,
+      "status": "In Progress"
+    },
+    {
+      "id": 3,
+      "name": "Library Online Shop",
+      "description": "Spring REST API + React app with CRUD for inventory, users, and orders. Clean controller/service layers, Dockerized MySQL for local dev.",
+      "subdomain": "",
+      "github": "",
+      "tech": ["Spring", "React", "MySQL", "Docker"],
+      "featured": false,
+      "status": "Archived"
     }
   ],
   "education": [
@@ -37,8 +57,26 @@
       "degree": "Diploma in Computer Programming",
       "period": "2024 – 2026",
       "gpa": "4.0 / 4.0"
+    },
+    {
+      "school": "Wales Young Institute",
+      "degree": "Business Entrepreneurship and Technology",
+      "period": "2023 – 2024",
+      "gpa": "3.86"
     }
   ],
   "experience": [
+    {
+      "role": "Produce Associate",
+      "company": "Pino's Get Fresh — Sault Ste. Marie, ON",
+      "period": "Jun 2025 – Present",
+      "description": "Customer support in a fast-paced environment."
+    },
+    {
+      "role": "Produce Associate",
+      "company": "IGA Canada — Vancouver, BC",
+      "period": "Jun 2023 – Aug 2024",
+      "description": "Customer service and daily quality standards."
+    }
   ]
 }

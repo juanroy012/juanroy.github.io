@@ -1,9 +1,36 @@
-import { FiMapPin, FiMail, FiBriefcase, FiBook } from 'react-icons/fi'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { FiMapPin, FiMail, FiBook, FiBriefcase, FiAward } from 'react-icons/fi'
 import SectionWrapper, { SectionLabel, SectionTitle, SectionDivider } from './SectionWrapper'
+
+function TimelineCard({ icon: Icon, title, subtitle, period, meta, delay }) {
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: 20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ delay, duration: 0.4 }}
+      className="card card-corner p-5 flex items-start gap-4"
+    >
+      <div className="mt-0.5 w-8 h-8 border border-border flex items-center justify-center shrink-0 text-primary">
+        <Icon size={14} />
+      </div>
+      <div>
+        <h3 className="text-white font-semibold text-sm">{title}</h3>
+        <p className="text-gray-500 text-xs mt-0.5 font-mono">{subtitle}</p>
+        <div className="flex items-center gap-3 mt-2 flex-wrap">
+          <span className="font-mono text-xs text-primary">{period}</span>
+          {meta && <span className="font-mono text-xs text-gray-600">{meta}</span>}
+        </div>
+      </div>
+    </motion.div>
+  )
+}
 
 export default function About({ personal, education, experience }) {
   return (
-    <SectionWrapper id="about">
+    <SectionWrapper id="about" className="border-t border-border">
       <SectionLabel>Get to know me</SectionLabel>
       <SectionTitle>About Me</SectionTitle>
       <SectionDivider />
@@ -11,69 +38,67 @@ export default function About({ personal, education, experience }) {
       <div className="grid lg:grid-cols-2 gap-12 items-start">
         {/* Bio */}
         <div className="space-y-6">
-          <p className="text-slate-300 text-lg leading-relaxed">{personal?.bio}</p>
+          <p className="text-gray-400 text-base leading-relaxed">{personal?.bio}</p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col gap-3">
             {personal?.location && (
-              <span className="flex items-center gap-2 text-muted text-sm">
-                <FiMapPin className="text-accent" /> {personal.location}
+              <span className="flex items-center gap-2 text-gray-600 text-sm font-mono">
+                <FiMapPin className="text-primary" size={12} /> {personal.location}
               </span>
             )}
             {personal?.email && (
               <a
                 href={`mailto:${personal.email}`}
-                className="flex items-center gap-2 text-muted text-sm hover:text-accent transition-colors"
+                className="flex items-center gap-2 text-gray-600 text-sm font-mono hover:text-primary transition-colors"
               >
-                <FiMail className="text-accent" /> {personal.email}
+                <FiMail className="text-primary" size={12} /> {personal.email}
               </a>
             )}
           </div>
 
-          {/* Availability badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/5">
-            <span className="glow-dot" />
-            <span className="text-accent text-sm font-medium">{personal?.availability}</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-primary/30 bg-primary/5">
+            <span className="status-dot" />
+            <span className="text-primary text-xs font-mono">{personal?.availability}</span>
+          </div>
+
+          {/* Stat row */}
+          <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
+            {[
+              { value: '4.0', label: 'GPA' },
+              { value: '3+',  label: 'Projects' },
+              { value: '2026', label: 'Graduating' },
+            ].map(({ value, label }) => (
+              <div key={label} className="text-center">
+                <p className="text-2xl font-bold text-primary font-mono">{value}</p>
+                <p className="text-xs text-gray-600 font-mono tracking-widest uppercase mt-1">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Education & Experience cards */}
+        {/* Timeline */}
         <div className="space-y-4">
           {education?.map((edu, i) => (
-            <div key={i} className="glass-card p-5">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
-                  <FiBook className="text-primary text-sm" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">{edu.degree}</h3>
-                  <p className="text-muted text-sm mt-0.5">{edu.school}</p>
-                  <div className="flex items-center gap-3 mt-2">
-                    <span className="text-xs font-mono text-accent">{edu.period}</span>
-                    {edu.gpa && (
-                      <span className="text-xs text-muted">GPA: {edu.gpa}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TimelineCard
+              key={i}
+              icon={FiBook}
+              title={edu.degree}
+              subtitle={edu.school}
+              period={edu.period}
+              meta={edu.gpa ? `GPA ${edu.gpa}` : undefined}
+              delay={i * 0.1}
+            />
           ))}
-
-          {experience?.map((exp, i) => (
-            <div key={i} className="glass-card p-5">
-              <div className="flex items-start gap-3">
-                <div className="mt-1 w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center shrink-0">
-                  <FiBriefcase className="text-accent text-sm" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">{exp.role}</h3>
-                  <p className="text-muted text-sm mt-0.5">{exp.company}</p>
-                  <span className="text-xs font-mono text-accent">{exp.period}</span>
-                  {exp.description && (
-                    <p className="text-slate-400 text-sm mt-2">{exp.description}</p>
-                  )}
-                </div>
-              </div>
-            </div>
+          {experience?.length > 0 && experience.map((exp, i) => (
+            <TimelineCard
+              key={i}
+              icon={FiBriefcase}
+              title={exp.role}
+              subtitle={exp.company}
+              period={exp.period}
+              meta={exp.description}
+              delay={(education?.length ?? 0) * 0.1 + i * 0.1}
+            />
           ))}
         </div>
       </div>

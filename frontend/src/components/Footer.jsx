@@ -1,33 +1,27 @@
-import { FiGithub, FiLinkedin, FiTwitter, FiCode } from 'react-icons/fi'
+import { FiGithub, FiLinkedin } from 'react-icons/fi'
 
 export default function Footer({ personal }) {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border bg-surface/20 py-10 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="border-t border-border py-8 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Brand */}
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <FiCode className="text-white text-xs" />
-          </div>
-          <span className="font-bold text-white font-mono text-sm">
-            {personal?.name ?? 'Portfolio'}
-            <span className="text-accent">.</span>
-          </span>
-        </div>
+        <span className="font-mono text-sm text-gray-600">
+          <span className="text-primary">/</span>
+          {personal?.name?.toLowerCase().replace(' ', '-') ?? 'portfolio'}
+        </span>
 
         {/* Copy */}
-        <p className="text-muted text-sm text-center">
-          © {year} {personal?.name ?? 'Your Name'}.
+        <p className="font-mono text-xs text-gray-700">
+          © {year} {personal?.name ?? 'Juan Roy'} — built with React + FastAPI
         </p>
 
         {/* Socials */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {[
             { icon: FiGithub, href: personal?.github, label: 'GitHub' },
             { icon: FiLinkedin, href: personal?.linkedin, label: 'LinkedIn' },
-            { icon: FiTwitter, href: personal?.twitter, label: 'Twitter' },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
@@ -35,9 +29,10 @@ export default function Footer({ personal }) {
               target="_blank"
               rel="noreferrer"
               aria-label={label}
-              className="text-muted hover:text-accent transition-colors"
+              className="w-8 h-8 border border-border flex items-center justify-center
+                         text-gray-600 hover:border-primary hover:text-primary transition-all"
             >
-              <Icon size={17} />
+              <Icon size={13} />
             </a>
           ))}
         </div>
