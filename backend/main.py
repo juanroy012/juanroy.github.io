@@ -73,7 +73,15 @@ def health():
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
 
 if os.path.exists(STATIC_DIR):
+    # Serve /assets/* (JS, CSS, hashed chunks)
     app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="assets")
+
+    # Serve all other root-level static files from dist/
+    # (favicon.ico, favicon-*.png, apple-icon-*.png, manifest.json, browserconfig.xml, etc.)
+    _STATIC_EXTENSIONS = {
+        ".ico", ".png", ".svg", ".webp", ".jpg", ".jpeg",
+        ".json", ".xml", ".txt", ".pdf", ".webmanifest",
+    }
 
     @app.get("/resume.pdf")
     def serve_resume():
@@ -84,5 +92,12 @@ if os.path.exists(STATIC_DIR):
 
     @app.get("/{full_path:path}")
     def serve_spa(full_path: str):
-        index = os.path.join(STATIC_DIR, "index.html")
-        return FileResponse(index)
+        # If a real file exists in dist/ with a known static extension, serve it directly
+        if full_path:
+            file_path = os.path.join(STATIC_DIR, full_path)
+            ext = os.path.splitext(full_path)[1].lower()
+            if ext in _STATIC_EXTENSIONS and os.path.isfile(file_path):
+                return FileResponse(file_path)
+
+        # Everything else → SPA index
+        return FileResponse(os.path.join(STATIC_DIR, "index.html"))
