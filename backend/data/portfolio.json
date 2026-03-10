@@ -38,17 +38,7 @@
       "github": "",
       "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "Docker"],
       "featured": true,
-      "status": "In Progress"
-    },
-    {
-      "id": 3,
-      "name": "Library Online Shop",
-      "description": "Spring REST API + React app with CRUD for inventory, users, and orders. Clean controller/service layers, Dockerized MySQL for local dev.",
-      "subdomain": "",
-      "github": "",
-      "tech": ["Spring", "React", "MySQL", "Docker"],
-      "featured": false,
-      "status": "Archived"
+      "status": "Capstone"
     }
   ],
   "education": [
@@ -62,21 +52,8 @@
       "school": "Wales Young Institute",
       "degree": "Business Entrepreneurship and Technology",
       "period": "2023 – 2024",
-      "gpa": "3.86"
+      "gpa": "3.86 / 4.0"
     }
   ],
-  "experience": [
-    {
-      "role": "Produce Associate",
-      "company": "Pino's Get Fresh — Sault Ste. Marie, ON",
-      "period": "Jun 2025 – Present",
-      "description": "Customer support in a fast-paced environment."
-    },
-    {
-      "role": "Produce Associate",
-      "company": "IGA Canada — Vancouver, BC",
-      "period": "Jun 2023 – Aug 2024",
-      "description": "Customer service and daily quality standards."
-    }
-  ]
+  "experience": []
 }
