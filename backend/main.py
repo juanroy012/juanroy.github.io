@@ -80,6 +80,7 @@ if os.path.exists(STATIC_DIR):
     # (favicon.ico, favicon-*.png, apple-icon-*.png, manifest.json, browserconfig.xml, etc.)
     _STATIC_EXTENSIONS = {
         ".ico", ".png", ".svg", ".webp", ".jpg", ".jpeg",
+        ".gif", ".mp4", ".webm", ".ogg",
         ".json", ".xml", ".txt", ".pdf", ".webmanifest",
     }
 
