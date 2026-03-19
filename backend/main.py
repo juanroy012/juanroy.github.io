@@ -88,7 +88,11 @@ if os.path.exists(STATIC_DIR):
         resume_path = os.path.join(STATIC_DIR, "resume.pdf")
         if not os.path.exists(resume_path):
             raise HTTPException(status_code=404, detail="Resume not found")
-        return FileResponse(resume_path, media_type="application/pdf", filename="resume.pdf")
+        return FileResponse(
+            resume_path,
+            media_type="application/pdf",
+            headers={"Content-Disposition": 'inline; filename="resume.pdf"'},
+        )
 
     @app.get("/{full_path:path}")
     def serve_spa(full_path: str):

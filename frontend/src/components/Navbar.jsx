@@ -62,7 +62,7 @@ export default function Navbar({ personal }) {
               rel="noreferrer"
               className="btn-primary text-xs py-2 px-4"
             >
-              resume.pdf
+              View Resume
             </a>
           </div>
 
@@ -111,7 +111,7 @@ export default function Navbar({ personal }) {
               rel="noreferrer"
               className="btn-primary text-xs justify-center"
             >
-              resume.pdf
+              View Resume
             </a>
           </motion.div>
         )}

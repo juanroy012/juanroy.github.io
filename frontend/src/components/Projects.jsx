@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiExternalLink, FiGithub, FiGlobe, FiStar } from 'react-icons/fi'
 import SectionWrapper, { SectionLabel, SectionTitle, SectionDivider } from './SectionWrapper'
 
+const FALLBACK_PREVIEW = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'
+
 const STATUS_STYLES = {
   Live:      'text-emerald-400 border-emerald-500/40',
   Capstone:  'text-sky-400     border-sky-500/40',
@@ -10,6 +12,8 @@ const STATUS_STYLES = {
 
 function ProjectCard({ project, index }) {
   const statusStyle = STATUS_STYLES[project.status] ?? STATUS_STYLES['Archived']
+  const media = project.gif ?? project.video ?? project.image ?? FALLBACK_PREVIEW
+  const isVideo = /\.(mp4|webm|ogg)(\?.*)?$/i.test(media)
 
   return (
     <motion.div
@@ -34,6 +38,27 @@ function ProjectCard({ project, index }) {
 
       {/* Description */}
       <p className="text-gray-500 text-sm leading-relaxed flex-1">{project.description}</p>
+
+      {/* GIF / video preview */}
+      <div className="border border-border bg-surface overflow-hidden" style={{ aspectRatio: '16 / 9' }}>
+        {isVideo ? (
+          <video
+            src={media}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src={media}
+            alt={`${project.name} preview`}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        )}
+      </div>
 
       {/* Tech badges */}
       <div className="flex flex-wrap gap-1.5">
