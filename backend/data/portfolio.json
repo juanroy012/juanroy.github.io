@@ -23,40 +23,38 @@
     {
       "id": 1,
       "name": "Financial Tracker",
-      "description": "Full-stack finance app with JWT auth, per-user data isolation, transactions/accounts/categories, search, pagination, and dashboard views.",
+      "description": "Self-hosted personal finance app with JWT auth and full per-user data isolation. Manage accounts, transactions, and categories with a real-time dashboard, income vs. expense charts, search, pagination, and dark/light theming. Backed by a pytest suite with 28+ tests and CI/CD via GitHub Actions.",
       "subdomain": "finance.juan-roy.com",
       "github": "https://github.com/juanroy012/FinancialTracker",
       "gif": "/financialtracker.gif",
       "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
-      "tech": ["FastAPI", "React", "SQLite", "Docker", "Fly.io"],
+      "tech": ["FastAPI", "React", "Vite", "Tailwind CSS", "SQLite", "Docker", "Fly.io"],
       "featured": true,
       "status": "Live"
     },
     {
       "id": 2,
+      "name": "My Book List",
+      "description": "MAL-inspired personal book catalog with user accounts, JWT auth, and personalized reading lists. Track books as Reading, Completed, Plan to Read, or Dropped — with ratings and reviews. Searches millions of titles via the Open Library API. Built with Spring Boot (Java) backend and a React + TypeScript frontend, deployed to Fly.io via GitHub Actions CI/CD.",
+      "subdomain": "",
+      "github": "https://github.com/juanroy012/MyBookList",
+      "gif": "https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif",
+      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+      "tech": ["Spring Boot", "React", "TypeScript", "PostgreSQL", "Docker", "Fly.io"],
+      "featured": true,
+      "status": "Live"
+    },
+    {
+      "id": 3,
       "name": "OHS Remote",
-      "description": "Capstone safety compliance platform. REST APIs for OHS manual workflows, document generation, secure token-based downloads, and Swagger docs.",
+      "description": "Capstone safety compliance platform that generates professional, branded OHS manuals for businesses. REST APIs handle order management, company branding (logo upload), NAICS-based industry classification, and secure token-based document downloads. AI-powered document generation uses OpenAI with RAG (Retrieval-Augmented Generation) to produce industry-specific Safety Job Procedures (SJPs) and Job Hazard Analyses (JHAs) tailored to jurisdiction and NAICS codes. Includes Swagger docs, Alembic migrations, and email delivery.",
       "subdomain": "",
       "github": "",
       "gif": "https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif",
       "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-      "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "Docker"],
+      "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "OpenAI", "Docker"],
       "featured": true,
       "status": "Capstone"
-    }
-  ],
-  "education": [
-    {
-      "school": "Sault College",
-      "degree": "Diploma in Computer Programming",
-      "period": "2024 - 2026",
-      "gpa": "4.0 / 4.0"
-    },
-    {
-      "school": "Wales Young Institute",
-      "degree": "Business Entrepreneurship and Technology",
-      "period": "2023 - 2024",
-      "gpa": "3.86 / 4.0"
     }
   ],
   "experience": []
