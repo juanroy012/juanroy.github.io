@@ -50,7 +50,7 @@
       "description": "Capstone safety compliance platform that generates professional, branded OHS manuals for businesses. REST APIs handle order management, company branding (logo upload), NAICS-based industry classification, and secure token-based document downloads. AI-powered document generation uses OpenAI with RAG (Retrieval-Augmented Generation) to produce industry-specific Safety Job Procedures (SJPs) and Job Hazard Analyses (JHAs) tailored to jurisdiction and NAICS codes. Includes Swagger docs, Alembic migrations, and email delivery.",
       "subdomain": "",
       "github": "",
-      "gif": "https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif",
+      "gif": "/capstone.gif",
       "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
       "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "OpenAI", "Docker"],
       "featured": true,
