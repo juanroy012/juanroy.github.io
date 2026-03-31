@@ -36,7 +36,7 @@
       "id": 2,
       "name": "My Book List",
       "description": "MAL-inspired personal book catalog with user accounts, JWT auth, and personalized reading lists. Track books as Reading, Completed, Plan to Read, or Dropped — with ratings and reviews. Searches millions of titles via the Open Library API. Built with Spring Boot (Java) backend and a React + TypeScript frontend, deployed to Fly.io via GitHub Actions CI/CD.",
-      "subdomain": "",
+      "subdomain": "mybooklist.juan-roy.com",s
       "github": "https://github.com/juanroy012/MyBookList",
       "gif": "/mybooklist.gif",
       "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
