@@ -2,32 +2,32 @@
   "personal": {
     "name": "Juan Roy",
     "title": "Backend & Full-Stack Developer",
-    "tagline": "I build REST APIs and database-driven web apps. Clean code, real deployments.",
-    "bio": "Computer Programming student at Sault College (GPA 4.0, graduating Apr 2026). I enjoy building backends that are reliable and frontends that are fast. Currently looking for Junior Backend or Full-Stack roles.",
+    "tagline": "Computer Programming graduate with 4.0 GPA. Strong Python backend dev (FastAPI) and Spring REST API experience. Skilled in Docker app deployment on AWS.",
+    "bio": "Computer Programming graduate at Sault College (GPA 4.0, Apr 2026). Strong Python backend developer with experience building REST APIs using FastAPI and Spring, deploying containerized apps with Docker on AWS. Proficient in SQL-driven database design and modern Git-based workflows. Actively seeking Junior Backend or Full-Stack developer roles.",
     "email": "juanroy012@gmail.com",
+    "phone": "(672) 699-0114",
     "github": "https://github.com/juanroy012",
     "linkedin": "https://linkedin.com/in/juan-roy",
-    "resume": "/resume.pdf",
+    "portfolio": "https://juan-roy.com",
     "location": "Sault Ste. Marie, ON",
     "availability": "Open to opportunities - remote or relocation"
   },
   "skills": {
-    "Languages": ["Java", "Python", "JavaScript", "SQL"],
-    "Backend": ["Spring", "Hibernate", "Servlets", "FastAPI", "REST APIs"],
-    "Frontend": ["React", "Vite", "Tailwind CSS", "HTML5", "CSS3"],
-    "Databases": ["MySQL", "PostgreSQL", "SQLite"],
-    "Tools": ["Git", "GitHub Actions", "Docker", "Linux"],
-    "Cloud": ["AWS EC2", "AWS S3", "AWS RDS", "Fly.io"]
+    "Programming Languages": ["Java", "Python", "JavaScript", "SQL"],
+    "Backend Development": ["Spring", "Hibernate", "Servlets", "REST APIs", "FastAPI"],
+    "Frontend Development": ["React", "HTML", "CSS", "Tailwind"],
+    "Databases": ["MySQL", "PostgreSQL (schema design, normalization, joins)"],
+    "Tools & Version Control": ["Git", "GitHub", "Docker", "Linux (CachyOS/Arch-based)", "Documentation"],
+    "Cloud Deployment": ["AWS (VPC, S3, RDS)", "Fly.io", "Render"]
   },
   "projects": [
     {
       "id": 1,
       "name": "Financial Tracker",
-      "description": "Self-hosted personal finance app with JWT auth and full per-user data isolation. Manage accounts, transactions, and categories with a real-time dashboard, income vs. expense charts, search, pagination, and dark/light theming. Backed by a pytest suite with 28+ tests and CI/CD via GitHub Actions.",
+      "description": "Backend REST API using FastAPI (Python) with JWT auth and per-user data isolation. Handles transactions, accounts, and categories with search, filtering, pagination, and dashboard visualizations. Dockerized for deployment to Fly.io, with GitHub Actions CI/CD automating tests and deployment.",
       "subdomain": "finance.juan-roy.com",
       "github": "https://github.com/juanroy012/FinancialTracker",
       "gif": "/financialtracker.gif",
-      "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
       "tech": ["FastAPI", "React", "Vite", "Tailwind CSS", "SQLite", "Docker", "Fly.io"],
       "featured": true,
       "status": "Live"
@@ -35,27 +35,50 @@
     {
       "id": 2,
       "name": "My Book List",
-      "description": "MAL-inspired personal book catalog with user accounts, JWT auth, and personalized reading lists. Track books as Reading, Completed, Plan to Read, or Dropped — with ratings and reviews. Searches millions of titles via the Open Library API. Built with Spring Boot (Java) backend and a React + TypeScript frontend, deployed to Fly.io via GitHub Actions CI/CD.",
-      "subdomain": "mybooklist.juan-roy.com",s
+      "description": "Book catalog app with user registration, email verification, and JWT (Spring Security + BCrypt). Built as a layered Java Spring Boot project. Integrates Open Library API for trending and searchable books, storing book metadata in PostgreSQL. CI/CD and deployment on Fly.io.",
+      "subdomain": "mybooklist.juan-roy.com",
       "github": "https://github.com/juanroy012/MyBookList",
       "gif": "/mybooklist.gif",
-      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
       "tech": ["Spring Boot", "React", "TypeScript", "PostgreSQL", "Docker", "Fly.io"],
       "featured": true,
       "status": "Live"
     },
     {
       "id": 3,
-      "name": "OHS Remote",
-      "description": "Capstone safety compliance platform that generates professional, branded OHS manuals for businesses. REST APIs handle order management, company branding (logo upload), NAICS-based industry classification, and secure token-based document downloads. AI-powered document generation uses OpenAI with RAG (Retrieval-Augmented Generation) to produce industry-specific Safety Job Procedures (SJPs) and Job Hazard Analyses (JHAs) tailored to jurisdiction and NAICS codes. Includes Swagger docs, Alembic migrations, and email delivery.",
+      "name": "OHS Remote (Capstone) - Safety Compliance Platform",
+      "description": "REST APIs for generating branded OHS manuals and handling order workflow, logo uploads, and secure document downloads (token-based). Uses MySQL, SQLAlchemy, Alembic migrations; containerized via Docker Compose. All endpoints documented with Swagger/OpenAPI.",
       "subdomain": "",
       "github": "",
       "gif": "/capstone.gif",
-      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-      "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "OpenAI", "Docker"],
+      "tech": ["FastAPI", "React", "MySQL", "SQLAlchemy", "Alembic", "Docker"],
       "featured": true,
       "status": "Capstone"
     }
   ],
-  "experience": []
+  "education": [
+    {
+      "school": "Sault College",
+      "program": "Computer Programming Diploma",
+      "location": "Sault Ste. Marie, ON",
+      "start": "Sep 2024",
+      "end": "Apr 2026",
+      "gpa": "4.0/4.0",
+      "coursework": [
+        "Programming Concept 1 & 2",
+        "Programming Paradigm",
+        "Advanced Web Applications",
+        "Database 1 & 2",
+        "Capstone"
+      ]
+    },
+    {
+      "school": "Tri Ratna Vocational High School",
+      "program": "Accounting High School Diploma",
+      "location": "Jakarta, Indonesia",
+      "start": "Aug 2017",
+      "end": "May 2020",
+      "gpa": "3.9/4.0",
+      "coursework": []
+    }
+  ]
 }
